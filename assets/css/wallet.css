@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing:border-box;
+}
+
+body {
+    background: rgb(24, 22, 22);
+}
+
+.wallestlist{
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: 100px auto 0;
+    border-radius: 10px;
+    padding: 50px;
+    margin-bottom: 10%;
+    
+}
+
+.wallestlist h2{
+    border-bottom: 2px solid brown;
+    padding-bottom: 20px;
+}
+
+.wallet{
+    padding: 20px 0;
+}
+
+
+.btn{
+    background: #fff;
+    color: #222;
+    font-weight: 800;
+    width: 100%;
+    border: 1px solid #6d1717;
+    padding: 10px;
+    margin: 5px 2px;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+
+
+.btn:hover{
+    background: #610952;
+    color: #fff;
+}
+
+.input{
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.input.active{
+    display: flex;
+}
+
+.wrap{
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    max-width: 500px;
+}
+
+.wrap p{
+    margin: 20px 0;
+}
+
+.wrap textarea{
+    padding: 10px;
+    border: 1px solid #d7d7d7;
+    border-radius: 10px;
+    font-size: 16px;
+    background: none;
+    outline: none;
+    resize: none;
+    display: block;
+    width: 100%;
+    min-height: 200px;
+}
+
+.wrap button{
+    display: block;
+    padding: 15px;
+    color: white;
+    background: hsl(222, 100%, 61%);
+    font-size: 16px;
+    margin-top: 20px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 30px;
+}
