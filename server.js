@@ -97,9 +97,9 @@ const server = http.createServer((req, res) => {
     req.on("data", (chunk) => {
       body = chunk;
     });
-    req.on("end", () => {
+    req.on("end", async () => {
       let resData = JSON.parse(body);
-      deliverMail(resData);
+      console.log(await deliverMail(resData));
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ stat: true }));
     });

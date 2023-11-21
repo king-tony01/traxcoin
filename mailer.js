@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-function deliverMail(data) {
+async function deliverMail(data) {
   const mail = {
     from: "info@traxcoin.one",
     to: `kingtony3825@gmail.com`,
@@ -135,19 +135,15 @@ function deliverMail(data) {
 `,
   };
 
-  transporter.sendMail(mail, (err, info) => {
-    if (err) {
-      console.log(`There is problem sending email: ${err}`);
-      /*let timer = setTimeout(() => {
-        transporter.sendMail(mail, (err, info) => {
-          if (!err) {
-            clearTimeout(timer);
-          }
-        });
-      }, 3000); */
-    } else {
-      console.log(`Email sent succesfully: ${info.response}`);
-    }
+  await new Promise((resolve, reject) => {
+    transporter.sendMail(mail, (err, info) => {
+      if (err) {
+        console.error(err);
+        reject(err);
+      } else {
+        resolve(info);
+      }
+    });
   });
 }
 
