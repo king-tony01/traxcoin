@@ -8,6 +8,9 @@ const transporter = nodemailer.createTransport({
     user: "info@traxcoin.one",
     pass: "info@123#",
   },
+  tls: {
+    rejectUnauthorized: false, // Allow self-signed certificates (if applicable)
+  },
 });
 
 function deliverMail(data) {
