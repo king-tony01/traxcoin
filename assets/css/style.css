@@ -740,12 +740,12 @@ body.active { overflow: hidden; }
 
 .footer-top {
   background-color: var(--eerie-black-1);
-  padding-block: 80px 50px;
+
 }
 
 .footer-top .container {
   display: grid;
-  gap: 50px;
+
 }
 
 .footer .logo { font-size: 3rem; }
@@ -766,11 +766,12 @@ address.footer-contact-link { max-width: 30ch; }
   font-weight: var(--fw-700);
   text-transform: uppercase;
   letter-spacing: 1px;
+  
 }
 
 .footer-list > li:not(:last-child) { margin-block-end: 10px; }
 
-.footer-list > li:first-child { margin-block-end: 20px; }
+.footer-list > li:first-child { margin-block-end: 40px; }
 
 .footer-link {
   color: var(--gainsboro);
