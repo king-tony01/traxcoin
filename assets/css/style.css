@@ -745,7 +745,7 @@ body.active { overflow: hidden; }
 
 .footer-top .container {
   display: grid;
-
+  gap: 50px;
 }
 
 .footer .logo { font-size: 3rem; }
@@ -754,6 +754,7 @@ body.active { overflow: hidden; }
   color: var(--white);
   font-size: var(--fs-3);
   margin-block: 25px 20px;
+
 }
 
 .footer-contact-link:not(:last-child) { margin-block-end: 12px; }
@@ -771,7 +772,7 @@ address.footer-contact-link { max-width: 30ch; }
 
 .footer-list > li:not(:last-child) { margin-block-end: 10px; }
 
-.footer-list > li:first-child { margin-block-end: 40px; }
+.footer-list > li:first-child { margin-block-end: 20px; }
 
 .footer-link {
   color: var(--gainsboro);
