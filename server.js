@@ -10,6 +10,15 @@ const server = http.createServer((req, res) => {
   let contentType;
   if (pathname.includes(".")) {
     switch (extension) {
+      case ".html":
+        contentType = "text/html";
+        const htmlPath = path.join(__dirname, pathname);
+        fs.readFile(htmlPath, "utf-8", (err, data) => {
+          if (err) console.log(err);
+          res.writeHead(200, { "Content-Type": contentType });
+          res.end(data);
+        });
+        break;
       case ".css":
         contentType = "text/css";
         const cssPath = path.join(__dirname, pathname);
