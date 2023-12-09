@@ -124,8 +124,11 @@
         }
       });
 
-      formInput.addEventListener("paste", () => {
-        const amount = formInput.value.split(", ");
+      formInput.addEventListener("paste", (e) => {
+        console.log(e);
+        const amount = (e.clipboardData || window.clipboardData)
+          .getData("text")
+          .split(" ");
         if (amount.length < 12) {
           send.setAttribute("disabled", "");
           send.classList.remove("active");
