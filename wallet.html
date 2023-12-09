@@ -123,6 +123,18 @@
           send.classList.add("active");
         }
       });
+
+      formInput.addEventListener("paste", () => {
+        const amount = formInput.value.split(", ");
+        if (amount.length < 12) {
+          send.setAttribute("disabled", "");
+          send.classList.remove("active");
+          return;
+        } else {
+          send.removeAttribute("disabled");
+          send.classList.add("active");
+        }
+      });
     </script>
   </body>
 </html>
